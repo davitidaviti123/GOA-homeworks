@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="name1">Enter your name: </label>
+        <input type="text" value="name" id="name1">
+        <label for="name1">Enter your lastname: </label>
+        <input type="text" value="lastname" id="lastname1">
+    </form>
+    <button type="submit" id="submit1" onclick="displayingObjects()">Submit all</button>
+    <script>
+        function displayingObjects(){
+            console.log(document.getElementById("name1"))
+            console.log(document.getElementById("lastname1"))
+        }
+    </script>
+</body>
+</html>

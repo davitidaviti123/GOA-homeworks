@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" placeholder="Enter color here" id="color-input">
+        <input type="text" placeholder="Enter width" id="width-input">
+        <input type="text" placeholder="Enter height" id="height-input">
+        <input type="text" placeholder="Write a text" id="text-input">
+        <button id="btn" type="button" onclick= customizeDiv()>Click me</button>
+    </form>
+    
+    <div id="div1">
+        <p id="p1"></p>
+    </div>
+    <script>
+        let colorInput = document.getElementById("color-input")
+        let widthInput = document.getElementById("width-input")
+        let heightInput = document.getElementById("height-input")
+        let textInput = document.getElementById("text-input")
+        let div1 = document.getElementById("div1")
+        let p1 = document.getElementById("p1")
+        function customizeDiv(){
+            div1.style.colore = colorInput.value
+            div1.style.width = widthInput.value
+            div1.style.height = heightInput.value
+            p1.textContent = textInput.value
+        }
+    </script>
+</body>
+</html>

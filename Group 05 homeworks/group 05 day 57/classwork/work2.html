@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" id="color-back" placeholder="Please type color here">
+        <input type="text" id="div-width" placeholder="Please enter width">
+        <input type="text" id="div-height" placeholder="please enter height">
+        <button type="button" id="btn" onclick= changingValues()>Done</button>
+    </form>
+    <br>
+    <div id="div-id">
+
+    </div>
+    <script>
+        let divBackroundColor = document.getElementById("color-back")
+        let widthOfDiv = document.getElementById("div-width")
+        let heightOfDiv = document.getElementById("div-height")
+        let btn = document.getElementById("btn")
+        let divId = document.getElementById("div-id")
+        function changingValues(){
+            divId.style.backgroundColor = divBackroundColor.value
+            divId.style.width = widthOfDiv.value
+            divId.style.height = heightOfDiv.value
+        }
+    </script>
+</body>
+</html>

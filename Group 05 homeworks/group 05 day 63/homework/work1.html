@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank project</title>
+    <link rel="stylesheet" href="work1.css">
+</head>
+<body>
+    <h1><b>Webinar Registration Form</b></h1><br>
+    <div id="div1">
+    <form>
+        <label for="d1">Full Name:</label><br>
+        <input type="text" placeholder="Enter Your Full Name Here" id="d1">
+        <label for="d2">Email:</label>
+        <input type="email" placeholder="example: myname@gmail.com" id="d2">
+        <label for="d3">Phone:</label>
+        <input type="number" placeholder="(000) 000-0000" id="d3">
+        <label for="d4">Company:</label>
+        <input type="text" placeholder="Which company" id="d4"><br>
+        <label for="d5">how much money do you need to widthraw:</label>
+        <input type="number" id="d5"><br><br><br><br>
+        <button type="button" id="button1" onclick= myFunction()>Widthraw Money</button>
+    </form>
+    </div>
+    <script>
+        let fullName = document.getElementById("d1")
+        let email = document.getElementById("d2")
+        let phone = document.getElementById("d3")
+        let company = document.getElementById("d4")
+        let widthrawMoney = document.getElementById("d5")
+        function myFunction(){
+            console.log(fullName.textContent , email.textContent , phone.textContent , company.textContent , widthrawMoney.textContent)
+        }
+    </script>
+</body>
+</html>

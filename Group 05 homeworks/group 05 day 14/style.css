@@ -1,0 +1,13 @@
+img {
+    width: 20px;
+    height: 20px;
+}
+#p1 {
+    font-weight: lighter;
+}
+div {
+    background-color: gray;
+    border: 5px, black, dotted;
+    width: 400px;
+    height: 100px;
+}

@@ -1,0 +1,11 @@
+label {
+    margin-right: 10px;
+    margin-left: 50px;
+}
+h2 {
+    color: rgb(43, 0, 161);
+}
+select {
+    width: 160px;
+    height: 25px;
+}

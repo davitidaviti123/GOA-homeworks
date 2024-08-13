@@ -1,0 +1,28 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(39, 39, 39, 0.995);
+}
+#d3 {
+    width: 240px;
+    height: 150px
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+h1 {
+    margin-right: 260px
+}
+div {
+    background-color: rgba(148, 148, 148, 0.442);
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    border: 3px,black;
+}
+input,button {
+    background-color: rgb(151, 151, 151);
+    border: 3px,black;
+    cursor: pointer;
+}

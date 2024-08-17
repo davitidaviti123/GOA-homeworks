@@ -1,0 +1,31 @@
+header {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(91, 90, 90);
+    border-radius: 2rem;
+    box-shadow: 10,2,10,2;
+}
+nav {
+    margin-left: 300px;
+    margin-top: 30px;
+}
+body {
+    background-color: rgb(55, 55, 55);
+}
+a {
+    font-size: 50px;
+    margin-right: 50px;
+    text-decoration: none;
+    color: white;
+    text-shadow: 3,2,3,2;
+}
+a:hover {
+    cursor: pointer;
+    color: rgb(165, 165, 163);
+    transition: 1s;
+}
+h1 {
+    font-size: 60px;
+    color: white;
+    margin-left: 20px;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce Product Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"><img src="images/logo.svg" alt=""></div>
+      <ul class="nav-links">
+        <li><a href="#">Collections</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <div class="cart-and-avatar">
+        <img src="images/icon-cart.svg" alt="Cart Icon" class="cart-icon">
+        <img src="images/image-avatar.png" alt="User Avatar" class="avatar-icon">
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="product-display">
+      <div class="product-gallery">
+        <img id="big-image" src="images/image-product-1.jpg" alt="">
+        <img class="lil-image" src="images/image-product-1-thumbnail.jpg" alt="">
+        <img class="lil-image" src="images/image-product-2.jpg" alt="">
+        <img class="lil-image" src="images/image-product-3.jpg" alt="">
+        <img class="lil-image" src="images/image-product-4.jpg" alt="">
+      </div>
+      <div class="product-details">
+        <h1>Fall Limited Edition Sneakers</h1>
+        <p class="brand-name">SNEAKER COMPANY</p>
+        <p class="product-description">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.</p>
+        <div class="pricing">
+          <p class="discounted-price">$125.00</p>
+          <p class="original-price">$250.00</p>
+        </div>
+        <div class="quantity-and-cart">
+          <div class="quantity-and-cart">
+            <div class="quantity-selector">
+              <button class="minus-btn">-</button>
+              <span class="quantity-display">1</span>
+              <button class="plus-btn">+</button>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

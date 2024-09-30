@@ -1,0 +1,150 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+  
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+  
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+  
+.nav-links li {
+    margin-right: 20px;
+}
+  
+.cart-and-avatar {
+    display: flex;
+    align-items: center;
+}
+  
+.cart-icon, .avatar-icon {
+    margin-left: 20px;
+    cursor: pointer;
+  
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+  
+.nav-links li {
+    margin-right: 20px;
+}
+  
+.nav-links a {
+    text-decoration: none;
+    color: black;
+}
+.cart-and-avatar {
+    display: flex;
+    align-items: center;
+}
+  
+.cart-icon, .avatar-icon {
+    margin-left: 10px;
+    width: 40px; /* Set appropriate width for the icons */
+    height: 40px;
+}
+.product-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 40px;
+}
+  
+.product-gallery {
+    flex: 1;
+    margin-right: 20px;
+    border: 1.5px,solid,black;
+    background-color: rgba(255, 255, 255, 0.551);
+}
+  
+.product-details {
+    flex: 1;
+    max-width: 500px;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    
+}
+  
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+  
+p {
+    margin-bottom: 20px;
+}
+.quantity-and-cart {
+    display: flex;
+    align-items: center;
+}
+  
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+  
+.add-to-cart {
+    padding: 10px 20px;
+    background-color: #ff7d1a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.lil-image {
+    max-width: 90px;
+    max-height: 90px;
+    margin-left: 10px;
+}
+#big-image {
+    max-width: 90%;
+    margin-left: 10px;
+    margin-top: 2px;
+}
+.minus-btn{
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.701);
+    color: black;
+    max-width: 34px;
+    max-height: 34px;
+    margin-right: 6px;
+}
+.plus-btn{
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.701);
+    color: black;
+    max-width: 34px;
+    max-height: 34px;
+    margin-left: 6px;
+}
+a:hover {
+    color: rgb(97, 97, 97);
+    transition: 2s;
+    transition-duration: 2s;
+}
+.discounted-price {
+    font-weight: bolder;
+    font-size: 26px;
+}
+.original-price {
+    text-decoration: line-through;
+}

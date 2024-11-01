@@ -3,15 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Square Orbit</title>
     <style>
+        /* Center the container */
+        #container {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Small red box */
+        #box {
+            width: 10px;
+            height: 10px;
+            background: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Centered text */
         h1 {
-            text-align: center;
+            position: absolute;
+            margin: 0;
+            z-index: 1;  /* Keep text above the box */
         }
     </style>
 </head>
 <body>
-    <h1>Davit Meparishvili</h1>
-    <script src="script.js"></script>
+    <div id="container">
+        <h1>Hello</h1>
+        <div id="box"></div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            var posX = 0;
+            var posY = 0;
+            var direction = "right";
+            var box = document.getElementById('box');
+            
+            // Set interval for movement
+            var t = setInterval(move, 10);
+
+            function move() {
+                // Move the box in a square path
+                if (direction === "right") {
+                    posX += 1;
+                    box.style.left = posX + 'px';
+                    if (posX >= 150) {  // Right edge of square
+                        direction = "down";
+                    }
+                } else if (direction === "down") {
+                    posY += 1;
+                    box.style.top = posY + 'px';
+                    if (posY >= 150) {  // Bottom edge of square
+                        direction = "left";
+                    }
+                } else if (direction === "left") {
+                    posX -= 1;
+                    box.style.left = posX + 'px';
+                    if (posX <= 0) {  // Left edge of square
+                        direction = "up";
+                    }
+                } else if (direction === "up") {
+                    posY -= 1;
+                    box.style.top = posY + 'px';
+                    if (posY <= 0) {  // Top edge of square
+                        direction = "right";
+                    }
+                }
+            }
+        };
+    </script>
 </body>
 </html>

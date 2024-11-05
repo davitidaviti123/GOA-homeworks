@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: rgba(202, 152, 161, 0.504);
+        }
+        button {
+            border-radius: 10%;
+            border: 0;
+            width: 50px;
+            height: 30px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        img {
+            border-radius: 3%;
+            height: 200px;
+            width: 400px;
+        }
+        p {
+            color: rgba(195, 147, 155, 0.781);
+            font-family: fantasy;
+            
+        }
+        h1 {
+            font-family: fantasy;
+            color: rgba(252, 128, 128, 0.63);
+        }
+    </style>
+</head>
+<body>
+    <h1>Daily cuteness</h1>
+    <p>Cat edition</p>
+    <div>
+        <button onclick="prev()" id="btn1"> Prev </button>
+        <img id="slider" src="images/lethargic-cat.webp" width="200px" height="100px"/>
+        <button onclick="next()" id="btn2"> Next </button>
+    </div>
+    <script>
+        var images = [
+            'images/lethargic-cat.webp', 
+            'images/images.jfif', 
+            'images/Scottish-fold-cat.webp'
+        ];
+        var num = 0;
+        function next() {
+            var slider = document.getElementById('slider');
+            num++;
+            if(num >= images.length) {
+                num = 0;
+            }
+            slider.src = images[num];
+        }
+        function prev() {
+            var slider = document.getElementById('slider');
+            num--;
+            if(num < 0) {
+                num = images.length-1;
+            }
+            slider.src = images[num];
+        }
+    </script>
+</body>
+</html>

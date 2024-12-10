@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Div Propagation Example</title>
+    <style>
+        .div-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .div-item {
+            width: 100%;
+            padding: 20px;
+            background-color: #ccc;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .even {
+            background-color: #ff7f7f;
+        }
+
+        .odd {
+            background-color: #7fffd4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="div-container">
+    <div class="div-item even" id="div1">Div 1 (Even)</div>
+    <div class="div-item odd" id="div2">Div 2 (Odd)</div>
+    <div class="div-item even" id="div3">Div 3 (Even)</div>
+    <div class="div-item odd" id="div4">Div 4 (Odd)</div>
+    <div class="div-item even" id="div5">Div 5 (Even)</div>
+</div>
+
+<script>
+    const divs = document.querySelectorAll('.div-item');
+
+    divs.forEach((div, index) => {
+        div.addEventListener('click', (event) => {
+            if (index % 2 === 0) {
+                alert('Propagation stopped on: ' + div.id);
+                event.stopPropagation();
+            } else {
+                alert('Propagation continues on: ' + div.id);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

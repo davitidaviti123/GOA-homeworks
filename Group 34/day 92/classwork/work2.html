@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Input Validation</title>
+</head>
+<body>
+  <input type="text" id="input-box" placeholder="Enter letters only" />
+  <span id="error-message"></span>
+
+  <script>
+    const inputBox = document.getElementById("input-box");
+    const errorMessage = document.getElementById("error-message");
+
+    inputBox.addEventListener("input", function () {
+      const value = inputBox.value;
+      let isValid = true;
+
+      for (let i = 0; i < value.length; i++) {
+        const char = value[i];
+        if (!(char >= "a" && char <= "z") && !(char >= "A" && char <= "Z")) {
+          isValid = false;
+          break;
+        }
+      }
+
+      if (isValid) {
+        errorMessage.textContent = "";
+      } else {
+        errorMessage.textContent = "Error: Only letters are allowed!";
+        errorMessage.style.color = "red";
+      }
+    });
+  </script>
+</body>
+</html>

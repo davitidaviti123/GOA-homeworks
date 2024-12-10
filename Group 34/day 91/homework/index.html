@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        input {
+            padding: 8px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .valid {
+            background-color: #d4edda;
+        }
+
+        .invalid {
+            background-color: #f8d7da;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <form id="userForm">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" required>
+        <div id="nameError" class="error"></div>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <div id="emailError" class="error"></div>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <div id="passwordError" class="error"></div>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+        <div id="confirmPasswordError" class="error"></div>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+        <div id="ageError" class="error"></div>
+
+        <button type="submit" id="submitButton" disabled>Submit</button>
+    </form>
+</div>
+
+<script>
+    const form = document.getElementById('userForm');
+    const submitButton = document.getElementById('submitButton');
+
+    // Validate full name
+    document.getElementById('fullName').addEventListener('keyup', function() {
+        const fullName = this.value;
+        const nameError = document.getElementById('nameError');
+        if (!/^[a-zA-Z\s]{3,}$/.test(fullName)) {
+            nameError.textContent = 'Full name must contain only letters and at least 3 characters.';
+            this.classList.add('invalid');
+            this.classList.remove('valid');
+        } else {
+            nameError.textContent = '';
+            this.classList.add('valid');
+            this.classList.remove('invalid');
+        }
+        validateForm();
+    });
+
+    // Validate email
+    document.getElementById('email').addEventListener('keyup', function() {
+        const email = this.value;
+        const emailError = document.getElementById('emailError');
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (!emailPattern.test(email)) {
+            emailError.textContent = 'Please enter a valid email address (e.g., example@domain.com).';
+            this.classList.add('invalid');
+            this.classList.remove('valid');
+        } else {
+            emailError.textContent = '';
+            this.classList.add('valid');
+            this.classList.remove('invalid');
+        }
+        validateForm();
+    });
+
+    // Validate password
+    document.getElementById('password').addEventListener('keyup', function() {
+        const password = this.value;
+        const passwordError = document.getElementById('passwordError');
+        const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+        if (!passwordPattern.test(password)) {
+            passwordError.textContent = 'Password must be at least 8 characters, include one uppercase letter, one number, and one special character.';
+            this.classList.add('invalid');
+            this.classList.remove('valid');
+        } else {
+            passwordError.textContent = '';
+            this.classList.add('valid');
+            this.classList.remove('invalid');
+        }
+        validateForm();
+    });
+
+    // Validate confirm password
+    document.getElementById('confirmPassword').addEventListener('keyup', function() {
+        const confirmPassword = this.value;
+        const password = document.getElementById('password').value;
+        const confirmPasswordError = document.getElementById('confirmPasswordError');
+        if (confirmPassword !== password) {
+            confirmPasswordError.textContent = 'Passwords must match.';
+            this.classList.add('invalid');
+            this.classList.remove('valid');
+        } else {
+            confirmPasswordError.textContent = '';
+            this.classList.add('valid');
+            this.classList.remove('invalid');
+        }
+        validateForm();
+    });
+
+    // Validate age
+    document.getElementById('age').addEventListener('keyup', function() {
+        const age = this.value;
+        const ageError = document.getElementById('ageError');
+        if (age < 18) {
+            ageError.textContent = 'You must be 18 years or older.';
+            this.classList.add('invalid');
+            this.classList.remove('valid');
+        } else {
+            ageError.textContent = '';
+            this.classList.add('valid');
+            this.classList.remove('invalid');
+        }
+        validateForm();
+    });
+
+    // Enable submit button if form is valid
+    function validateForm() {
+        const isFormValid = [...form.elements].every(input => input.classList.contains('valid') && input.value);
+        submitButton.disabled = !isFormValid;
+    }
+
+    // Handle form submission
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Form submitted successfully!');
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Clicker Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .cookie {
+            margin: 20px auto;
+            width: 150px;
+            cursor: pointer;
+        }
+        .stats {
+            margin: 20px;
+            font-size: 20px;
+        }
+        .gadgets {
+            margin: 20px;
+        }
+        .gadget {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .gadget.disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cookie Clicker Game</h1>
+    <img src="pngegg.png" alt="Cookie" class="cookie" id="cookie" onclick="clickCookie()" onmouseleave="cookieAnimationPlus()" onmouseover="cookieAnimationHover()">
+    <div class="stats">
+        <p>Cookies: <span id="cookies">0</span></p>
+        <p>Gold: <span id="gold">0</span></p>
+    </div>
+    <div class="gadgets">
+        <div class="gadget" id="gadget1" onclick="buyGadget(1)">
+            Gadget 1 (+1 gold per click) - Cost: 10 cookies
+        </div>
+        <div class="gadget" id="gadget2" onclick="buyGadget(2)">
+            Gadget 2 (+2 gold per click) - Cost: 50 cookies
+        </div>
+        <div class="gadget" id="gadget3" onclick="buyGadget(3)">
+            Gadget 3 (+5 gold per click) - Cost: 200 cookies
+        </div>
+    </div>
+
+    <script>
+        let cookies = 0;
+        let gold = 0;
+        let goldPerClick = 1;
+
+        function clickCookie() {
+            cookies++;
+            gold += goldPerClick;
+            updateStats();
+        }
+
+        function buyGadget(gadget) {
+            if (gadget === 1 && cookies >= 10) {
+                cookies -= 10;
+                goldPerClick += 1;
+                document.getElementById('gadget1').classList.add('disabled');
+                document.getElementById('gadget1').onclick = null;
+            } else if (gadget === 2 && cookies >= 50) {
+                cookies -= 50;
+                goldPerClick += 2;
+                document.getElementById('gadget2').classList.add('disabled');
+                document.getElementById('gadget2').onclick = null;
+            } else if (gadget === 3 && cookies >= 200) {
+                cookies -= 200;
+                goldPerClick += 5;
+                document.getElementById('gadget3').classList.add('disabled');
+                document.getElementById('gadget3').onclick = null;
+            } else {
+                alert('Not enough cookies to buy this gadget!');
+            }
+            updateStats();
+        }
+
+        function updateStats() {
+            document.getElementById('cookies').textContent = cookies;
+            document.getElementById('gold').textContent = gold;
+        }
+        function cookieAnimationPlus() {
+            let cookie = document.getElementById("cookie");
+            cookie.style.width = "150px";
+            cookie.style.transition = "1s"
+        }
+        function cookieAnimationHover() {
+            let cookie = document.getElementById("cookie");
+            cookie.style.width = "170px";
+            cookie.style.transition = "1s"
+        }
+    </script>
+</body>
+</html>

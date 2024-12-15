@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    animation: changeColors 10s infinite;
+  }
+button:hover {
+    animation: changeColors 10s infinite;
+    color: white;
+}
+  @keyframes changeColors {
+    0% {
+      background-color: #ff0000;
+    }
+    25% {
+      background-color: #00ff00;
+    }
+    50% {
+      background-color: #0000ff;
+    }
+    75% {
+      background-color: #ffff00;
+    }
+    100% {
+      background-color: #ff0000;
+    }
+  }
+.animated-button {
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.animated-button:hover {
+  animation: changeColors 3s infinite;
+  color: white;
+}

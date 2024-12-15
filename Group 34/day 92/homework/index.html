@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .form-container {
+            text-align: center;
+        }
+        .password-input {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            margin-bottom: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+        .strength-indicator {
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            border-radius: 5px;
+            width: 300px;
+            margin: 0 auto;
+        }
+        .low {
+            background-color: red;
+        }
+        .medium {
+            background-color: yellow;
+            color: black;
+        }
+        .strong {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Enter Your Password</h1>
+        <input type="password" id="password" class="password-input" placeholder="Enter password" oninput="checkStrength()">
+        <div id="strength-indicator" class="strength-indicator"></div>
+    </div>
+
+    <script>
+        function checkStrength() {
+            const password = document.getElementById('password').value;
+            const indicator = document.getElementById('strength-indicator');
+
+            if (password.length < 6) {
+                indicator.textContent = 'Weak';
+                indicator.className = 'strength-indicator low';
+            } else if (password.length >= 8 && /[A-Z0-9]/.test(password)) {
+                if (password.length >= 10 && /[A-Z]/.test(password) && /\d/.test(password) && /[!@#$%]/.test(password)) {
+                    indicator.textContent = 'Strong';
+                    indicator.className = 'strength-indicator strong';
+                } else {
+                    indicator.textContent = 'Medium';
+                    indicator.className = 'strength-indicator medium';
+                }
+            } else {
+                indicator.textContent = 'Weak';
+                indicator.className = 'strength-indicator low';
+            }
+        }
+    </script>
+</body>
+</html>

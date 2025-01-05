@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ID Generator and Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    input, button {
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .output {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>ID Generator and Checker</h1>
+  <button onclick="generateId()">Generate Random ID</button>
+  <input type="text" id="checkIdInput" placeholder="Enter ID to check">
+  <button onclick="checkId()">Check ID</button>
+  <div class="output" id="output"></div>
+  <script>
+    let ids = JSON.parse(localStorage.getItem("ids")) || [];
+
+    function generateId() {
+      const randomId = Math.random().toString(36).substr(2, 8);
+      ids.push(randomId);
+      localStorage.setItem("ids", JSON.stringify(ids));
+      document.getElementById("output").innerText = `Generated ID: ${randomId}`;
+    }
+
+    function checkId() {
+      const inputId = document.getElementById("checkIdInput").value;
+      const index = ids.indexOf(inputId);
+      document.getElementById("output").innerText = index !== -1 
+        ? `ID exists: key-ID "${inputId}", value-index ${index}` 
+        : `ID "${inputId}" does not exist.`;
+    }
+  </script>
+</body>
+</html>

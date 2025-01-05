@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter with localStorage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #counter {
+      font-size: 2rem;
+      margin: 20px;
+    }
+    button {
+      font-size: 1rem;
+      padding: 10px 20px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Counter with localStorage</h1>
+  <div id="counter">0</div>
+  <button onclick="increment()">Increment</button>
+  <button onclick="decrement()">Decrement</button>
+  <button onclick="reset()">Reset</button>
+
+  <script>
+    const counterElement = document.getElementById('counter');
+
+    function getCounter() {
+      return parseInt(localStorage.getItem('counter')) || 0;
+    }
+
+    function updateCounter(value) {
+      localStorage.setItem('counter', value);
+      counterElement.textContent = value;
+    }
+
+    function increment() {
+      const value = getCounter() + 1;
+      updateCounter(value);
+    }
+
+    function decrement() {
+      const value = getCounter() - 1;
+      updateCounter(value);
+    }
+
+    function reset() {
+      updateCounter(0);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      counterElement.textContent = getCounter();
+    });
+  </script>
+</body>
+</html>

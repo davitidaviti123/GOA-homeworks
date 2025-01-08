@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Person Data Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 0;
+    }
+    h1 {
+      text-align: center;
+    }
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    input, textarea, button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .person-list {
+      max-width: 700px;
+      margin: 20px auto;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    .person-list th, .person-list td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+    .person-list th {
+      background-color: #f4f4f4;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Person Data Manager</h1>
+
+  <form id="person-form">
+    <input type="text" id="first-name" placeholder="Name" required>
+    <input type="text" id="last-name" placeholder="Last Name" required>
+    <input type="number" id="age" placeholder="Age" min="0" required>
+    <input type="text" id="id" placeholder="Personal ID" required>
+    <input type="number" id="height" placeholder="Height (cm)" min="0" required>
+    <textarea id="description" placeholder="Description" required></textarea>
+    <button type="submit">Add Person</button>
+  </form>
+
+  <table class="person-list">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th>Personal ID</th>
+        <th>Height</th>
+        <th>Description</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody id="person-list"></tbody>
+  </table>
+
+  <script>
+    const form = document.getElementById('person-form');
+    const personList = document.getElementById('person-list');
+    
+    const loadPersons = () => {
+      const persons = JSON.parse(localStorage.getItem('persons')) || [];
+      persons.forEach(person => addPersonToTable(person));
+    };
+
+    const savePersons = (persons) => {
+      localStorage.setItem('persons', JSON.stringify(persons));
+    };
+
+    const generateEmail = (firstName, lastName, age) => {
+      const randomNum = Math.floor(Math.random() * 1000);
+      return `${firstName.toLowerCase()}.${lastName.toLowerCase()}${age}${randomNum}@example.com`;
+    };
+
+    const addPersonToTable = (person) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${person.firstName}</td>
+        <td>${person.lastName}</td>
+        <td>${person.age}</td>
+        <td>${person.id}</td>
+        <td>${person.height} cm</td>
+        <td>${person.description}</td>
+        <td>${person.email}</td>
+      `;
+      personList.appendChild(row);
+    };
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const firstName = document.getElementById('first-name').value;
+      const lastName = document.getElementById('last-name').value;
+      const age = document.getElementById('age').value;
+      const id = document.getElementById('id').value;
+      const height = document.getElementById('height').value;
+      const description = document.getElementById('description').value;
+
+      const email = generateEmail(firstName, lastName, age);
+
+      const person = { firstName, lastName, age, id, height, description, email };
+
+      const persons = JSON.parse(localStorage.getItem('persons')) || [];
+      persons.push(person);
+      savePersons(persons);
+
+      addPersonToTable(person);
+
+      form.reset();
+    });
+    loadPersons();
+  </script>
+</body>
+</html>

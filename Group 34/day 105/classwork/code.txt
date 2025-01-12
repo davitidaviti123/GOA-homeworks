@@ -1,0 +1,68 @@
+<div id="parent">
+  <div id="div1">
+    <div id="circle1"></div>
+  </div>
+  <div id="div2">
+    <div id="circle2"></div>
+  </div>
+  <div id="div3">
+    <div id="circle3"></div>
+  </div>
+</div>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background: #4A9A86;
+  }
+  #parent {
+    display:flex;
+    flex-direction: row;
+  }
+  #div1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background: #4C4C6B;
+  }
+  #div2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background: #FAE29E;
+    margin-left: 20px
+  }
+  #div3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background: #4C4C6B;
+    margin-left: 20px
+  }
+  #circle1 {
+    background: #FAE29E;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px
+  }
+  #circle2 {
+    background: #4C4C6B;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px
+  }
+  #circle3 {
+    background: #FAE29E;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px
+  }
+</style>

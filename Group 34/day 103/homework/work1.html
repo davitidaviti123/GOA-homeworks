@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game with Local Storage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .hidden {
+      display: none;
+    }
+    .container {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="welcome-screen" class="container">
+    <h1>Welcome!</h1>
+    <label for="username">Enter your name:</label>
+    <input type="text" id="username" placeholder="Your Name">
+    <button onclick="saveName()">Submit</button>
+  </div>
+
+  <div id="main-screen" class="container hidden">
+    <h1>Welcome, <span id="display-name"></span>!</h1>
+    <p>Score: <span id="score">0</span></p>
+    <label for="color-picker">Pick a background color:</label>
+    <input type="color" id="color-picker" onchange="changeBackgroundColor()">
+    <p>Guess the number between <span id="range-min">1</span> and <span id="range-max">2</span>:</p>
+    <input type="number" id="guess">
+    <button onclick="checkGuess()">Submit Guess</button>
+  </div>
+
+  <script>
+    const usernameInput = document.getElementById('username');
+    const welcomeScreen = document.getElementById('welcome-screen');
+    const mainScreen = document.getElementById('main-screen');
+    const displayName = document.getElementById('display-name');
+    const scoreElement = document.getElementById('score');
+    const colorPicker = document.getElementById('color-picker');
+    const guessInput = document.getElementById('guess');
+    const rangeMin = document.getElementById('range-min');
+    const rangeMax = document.getElementById('range-max');
+
+    let score = parseInt(localStorage.getItem('score')) || 0;
+    let range = parseInt(localStorage.getItem('range')) || 2;
+    let targetNumber = Math.floor(Math.random() * range) + 1;
+
+    function saveName() {
+      const name = usernameInput.value.trim();
+      if (name) {
+        localStorage.setItem('name', name);
+        displayName.textContent = name;
+        welcomeScreen.classList.add('hidden');
+        mainScreen.classList.remove('hidden');
+        scoreElement.textContent = score;
+        rangeMax.textContent = range;
+      }
+    }
+
+    function changeBackgroundColor() {
+      const color = colorPicker.value;
+      document.body.style.backgroundColor = color;
+      localStorage.setItem('backgroundColor', color);
+    }
+
+    function checkGuess() {
+      const guess = parseInt(guessInput.value);
+      if (guess === targetNumber) {
+        score++;
+        range *= 2;
+        targetNumber = Math.floor(Math.random() * range) + 1;
+        localStorage.setItem('score', score);
+        localStorage.setItem('range', range);
+        scoreElement.textContent = score;
+        rangeMax.textContent = range;
+        alert('Correct! The difficulty has increased.');
+      } else {
+        alert('Wrong guess, try again!');
+      }
+      guessInput.value = '';
+    }
+
+    window.onload = () => {
+      const storedName = localStorage.getItem('name');
+      const storedColor = localStorage.getItem('backgroundColor');
+      if (storedName) {
+        displayName.textContent = storedName;
+        scoreElement.textContent = score;
+        rangeMax.textContent = range;
+        welcomeScreen.classList.add('hidden');
+        mainScreen.classList.remove('hidden');
+        if (storedColor) {
+          document.body.style.backgroundColor = storedColor;
+          colorPicker.value = storedColor;
+        }
+      }
+    };
+  </script>
+</body>
+</html>

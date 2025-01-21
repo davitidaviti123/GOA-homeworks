@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nested Boxes</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+    }
+
+    .outer-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 400px;
+      height: 400px;
+      position: relative;
+      background-color: white;
+    }
+
+    .box1, .box2, .box3, .box4, .box5, .box6 {
+      border: 3px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .box1 {
+      width: 100%;
+      height: 100%;
+    }
+
+    .box2 {
+      width: 90%;
+      height: 90%;
+    }
+
+    .box3 {
+      width: 80%;
+      height: 80%;
+    }
+
+    .box4 {
+      width: 70%;
+      height: 70%;
+    }
+
+    .box5 {
+      width: 60%;
+      height: 60%;
+    }
+
+    .box6 {
+      width: 50%;
+      height: 50%;
+    }
+  </style>
+</head>
+<body>
+  <div class="outer-box">
+    <div class="box1">
+      <div class="box2">
+        <div class="box3">
+          <div class="box4">
+            <div class="box5">
+              <div class="box6"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

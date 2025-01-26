@@ -9,18 +9,15 @@ class Animal {
     }
 }
 
-const animal1 = new Animal("Leo", "Lion", 5);
-const animal2 = new Animal("Milo", "Cat", 2);
-const animal3 = new Animal("Bella", "Dog", 3);
+const animal1 = new Animal("lomi", "Lion", 5);
 
 animal1.moving()
-animal2.moving()
-animal3.moving()
 
 class Car {
-    constructor (brand,color){
+    constructor (brand,color,model){
         this.brand = brand
         this.color = color
+        this.model = model
     }
     startEngine() {
         console.log("starting the engine..")
@@ -30,13 +27,14 @@ class Car {
     }
 }
 
-const car1 = new Car("Toyota", "black");
+const car1 = new Car("Toyota", "black", "prius");
 car1.startEngine()
 car1.stopEngine()
 
 class Human {
-    constructor (name,age){
+    constructor (name,lastName,age){
         this.name = name
+        this.lastName = lastName
         this.age = age
     }
     greet () {
@@ -44,5 +42,5 @@ class Human {
     }
 }
 
-const human1 = new Human("davit",13)
+const human1 = new Human("davit","meparishvili",13)
 human1.greet()

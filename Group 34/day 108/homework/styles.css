@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f3f4f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    overflow: hidden;
+}
+
+.header {
+    background-color: #ecfdf5;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.header h1 {
+    color: #1c6e8c;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.header .sub-header {
+    color: #3dd596;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.header .description {
+    color: #718096;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.pricing, .benefits {
+    padding: 30px 20px;
+}
+
+.pricing {
+    background-color: #3dd596;
+    color: white;
+    text-align: center;
+}
+
+.pricing h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.pricing .price {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.pricing .price span {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.pricing button {
+    background-color: #ecfdf5;
+    color: #3dd596;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pricing button:hover {
+    background-color: #d4f5e8;
+}
+
+.benefits {
+    background-color: #fff;
+    color: #2d3748;
+}
+
+.benefits h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #1c6e8c;
+}
+
+.benefits ul {
+    list-style-type: none;
+    line-height: 1.8;
+    font-size: 0.9rem;
+}
+
+.benefits ul li {
+    margin-bottom: 10px;
+    color: #718096;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Library</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #00aa7d;
+        }
+        .book-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .book-card {
+            background: rgb(149, 255, 0);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 250px;
+        }
+        .book-card h3 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Book Library</h1>
+    <div class="book-container" id="bookContainer"></div>
+
+    <script>
+        class Book {
+            constructor(title, author, pages) {
+                this.title = title;
+                this.author = author;
+                this.pages = pages;
+            }
+            getInfo() {
+                return `${this.title} by ${this.author}, ${this.pages} pages`;
+            }
+        }
+
+        class Adventure extends Book {
+            constructor(title, author, pages, difficulty, setting) {
+                super(title, author, pages);
+                this.difficulty = difficulty;
+                this.setting = setting;
+            }
+            getInfo() {
+                return `${super.getInfo()} - Adventure in ${this.setting}`;
+            }
+        }
+
+        class Satire extends Book {
+            constructor(title, author, pages, humorType, target) {
+                super(title, author, pages);
+                this.humorType = humorType;
+                this.target = target;
+            }
+            getInfo() {
+                return `Satire: ${super.getInfo()} - Humor: ${this.humorType}`;
+            }
+        }
+
+        class Fantasy extends Book {
+            constructor(title, author, pages, magicSystem, mainRace) {
+                super(title, author, pages);
+                this.magicSystem = magicSystem;
+                this.mainRace = mainRace;
+            }
+            getInfo() {
+                return `${super.getInfo()} - Fantasy with ${this.mainRace}`;
+            }
+        }
+
+        const books = [
+            new Adventure("Treasure Island", "R.L. Stevenson", 250, "Medium", "Caribbean"),
+            new Satire("Animal Farm", "George Orwell", 180, "Political", "Totalitarianism"),
+            new Fantasy("The Hobbit", "J.R.R. Tolkien", 300, "High Magic", "Dwarves")
+        ];
+
+        const bookContainer = document.getElementById("bookContainer");
+        books.forEach(book => {
+            const bookCard = document.createElement("div");
+            bookCard.className = "book-card";
+            bookCard.innerHTML = `<h3>${book.title}</h3><p>${book.getInfo()}</p>`;
+            bookContainer.appendChild(bookCard);
+        });
+    </script>
+</body>
+</html>

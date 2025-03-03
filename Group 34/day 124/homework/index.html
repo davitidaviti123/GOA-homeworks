@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Queue</title>
+</head>
+<body>
+    <input type="text" id="message" placeholder="Enter message">
+    <input type="number" id="delay" placeholder="Enter delay (ms)">
+    <button onclick="addMessage()">Submit</button>
+    <div id="output"></div>
+
+    <script>
+        let queue = Promise.resolve();
+        
+        function addMessage() {
+            let message = document.getElementById("message").value;
+            let delay = parseInt(document.getElementById("delay").value);
+            
+            queue = queue.then(() => new Promise(resolve => {
+                setTimeout(() => {
+                    let div = document.createElement("div");
+                    div.textContent = message;
+                    document.getElementById("output").appendChild(div);
+                    console.log(message);
+                    resolve();
+                }, delay);
+            }));
+        }
+    </script>
+</body>
+</html>
